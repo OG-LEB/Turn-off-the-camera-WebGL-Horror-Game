@@ -18,7 +18,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private PlayUIController _PlayUIController;
     [SerializeField] private CameraZoom _CameraZoom;
     [SerializeField] private PauseMenuController pauseMenuController;
-    [SerializeField] private MonetisationScript Monetisation;
+    //[SerializeField] private MonetisationScript Monetisation;
     [Space]
     [Header("Camera")]
     [SerializeField] private GameObject MainMenuCamera;
@@ -68,7 +68,6 @@ public class LevelController : MonoBehaviour
     [SerializeField] private SavingSystem _SavingSystem;
     [SerializeField] private FirstPersonController _firstPersonController;
     [SerializeField] private SoundController _SoundController;
-
 
     public enum GameState { playing, pause }
     public bool GetPauseState()
@@ -129,7 +128,8 @@ public class LevelController : MonoBehaviour
     {
         if (CurrentGameState == GameState.playing)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            //if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseButton();
             }
@@ -176,7 +176,8 @@ public class LevelController : MonoBehaviour
         {
             CloseNote();
         }
-        else if (CurrentGameState == GameState.pause && Input.GetKeyDown(KeyCode.Tab) && canWeUnlockPauseByTab)
+        //else if (CurrentGameState == GameState.pause && Input.GetKeyDown(KeyCode.Tab) && canWeUnlockPauseByTab)
+        else if (CurrentGameState == GameState.pause && Input.GetKeyDown(KeyCode.Escape) && canWeUnlockPauseByTab)
         {
             PauseButton();
         }
@@ -283,7 +284,7 @@ public class LevelController : MonoBehaviour
         //Player.GetComponent<PlayerMovement>().RestartStamina();
         Player.GetComponent<FirstPersonController>().RestartStamina();
         GameAwake();
-        Monetisation.ShowAd();
+        //Monetisation.ShowAd();
     }
     public void EmptyButton()
     {
