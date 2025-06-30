@@ -129,7 +129,7 @@ public class LevelController : MonoBehaviour
         if (CurrentGameState == GameState.playing)
         {
             //if (Input.GetKeyDown(KeyCode.Tab))
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Tab))
             {
                 PauseButton();
             }
@@ -172,12 +172,12 @@ public class LevelController : MonoBehaviour
             }
 
         }
-        else if (CurrentGameState == GameState.pause && isNoteOpen && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E)))
+        else if (CurrentGameState == GameState.pause && isNoteOpen && (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.E)))
         {
             CloseNote();
         }
         //else if (CurrentGameState == GameState.pause && Input.GetKeyDown(KeyCode.Tab) && canWeUnlockPauseByTab)
-        else if (CurrentGameState == GameState.pause && Input.GetKeyDown(KeyCode.Escape) && canWeUnlockPauseByTab)
+        else if (CurrentGameState == GameState.pause && Input.GetKeyDown(KeyCode.Tab) && canWeUnlockPauseByTab)
         {
             PauseButton();
         }
